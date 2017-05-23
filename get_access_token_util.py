@@ -178,14 +178,18 @@ def get_access_token(consumer_secret, request_token, request_token_secret, oauth
 
 
 if __name__ == "__main__":
+    # アクセストークンを取得するはてなアカウントのはてなIDとログインパスワード
     hatena_id = "iruca21"
     password = "miserarenaiyo!"
+    # 事前にアプリケーション登録して得たconsumer_key/consumer_secret文字列
     consumer_key = "miserarenaiyo!"
     consumer_secret = "miserarenaiyo!"
+    # 取得したいアクセストークンのscope (カンマ区切り)
+    scope = "read_public,read_private,write_public,write_private"
     print "Consumer Key: "+ consumer_key
     print "Consumer Secret: "+ consumer_secret    
 
-    request_token_and_secret = get_request_token(consumer_key, consumer_secret, "read_public,read_private,write_public,write_private")
+    request_token_and_secret = get_request_token(consumer_key, consumer_secret, scope)
     request_token = request_token_and_secret["request_token"]
     request_token_secret = request_token_and_secret["request_token_secret"]
     
